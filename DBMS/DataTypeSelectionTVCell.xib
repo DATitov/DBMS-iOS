@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataTypeSelectionTVCell" customModule="SQLClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-ZH-mFQ">
+                        <rect key="frame" x="170" y="0.0" width="135" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="135" id="4Q1-AY-Ds7"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="Gpl-JT-ijs"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="N9s-vP-Axx"/>
+                        </connections>
+                    </pickerView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wV-B2-zbp">
+                        <rect key="frame" x="16" y="0.0" width="115" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auD-zG-j9E">
+                        <rect key="frame" x="170" y="0.0" width="135" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="auD-zG-j9E" firstAttribute="centerX" secondItem="Znb-ZH-mFQ" secondAttribute="centerX" id="BHo-vf-1tF"/>
+                    <constraint firstItem="auD-zG-j9E" firstAttribute="bottom" secondItem="Znb-ZH-mFQ" secondAttribute="bottom" id="YDZ-Vr-hxc"/>
+                    <constraint firstItem="auD-zG-j9E" firstAttribute="top" secondItem="Znb-ZH-mFQ" secondAttribute="top" id="deM-8h-Q6a"/>
+                    <constraint firstItem="Znb-ZH-mFQ" firstAttribute="leading" secondItem="7wV-B2-zbp" secondAttribute="trailing" constant="39" id="gn9-Qv-E6v"/>
+                    <constraint firstItem="auD-zG-j9E" firstAttribute="width" secondItem="Znb-ZH-mFQ" secondAttribute="width" id="kIC-nW-a4U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Znb-ZH-mFQ" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="IWA-Kv-ieP"/>
+                <constraint firstAttribute="trailing" secondItem="Znb-ZH-mFQ" secondAttribute="trailing" constant="15" id="Jnu-WN-gB2"/>
+                <constraint firstItem="7wV-B2-zbp" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="16" id="W6u-vK-ugW"/>
+                <constraint firstItem="7wV-B2-zbp" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="e7m-eU-Nra"/>
+                <constraint firstAttribute="bottom" secondItem="Znb-ZH-mFQ" secondAttribute="bottom" constant="1" id="qWR-LC-wtY"/>
+                <constraint firstAttribute="bottom" secondItem="7wV-B2-zbp" secondAttribute="bottom" id="w5E-dY-zBa"/>
+            </constraints>
+            <connections>
+                <outlet property="pickerView" destination="Znb-ZH-mFQ" id="V0r-bz-VvK"/>
+                <outlet property="valueLabel" destination="auD-zG-j9E" id="NlN-8B-lkh"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

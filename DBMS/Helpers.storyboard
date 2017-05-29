@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pdf Web View-->
+        <scene sceneID="Mje-r5-O4l">
+            <objects>
+                <viewController storyboardIdentifier="PdfWebView" id="fil-AN-3Hn" customClass="PdfWebView" customModule="SQLClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bNR-JU-aqK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hcg-ao-BKY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ipi-33-prF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSq-v4-ViI">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6m-HQ-RxH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdp-d1-Ssj">
+                                        <rect key="frame" x="87.5" y="37" width="200" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Z4M-Ok-dCu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaB-IB-mgN">
+                                        <rect key="frame" x="10" y="40" width="60" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="5VB-Vc-l1j"/>
+                                            <constraint firstAttribute="width" constant="60" id="KGs-LB-XKW"/>
+                                        </constraints>
+                                        <state key="normal" title="Закрыть"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped" destination="fil-AN-3Hn" eventType="touchUpInside" id="LoK-sQ-7ia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="0.027613146551724137" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DaB-IB-mgN" secondAttribute="bottom" constant="16" id="4qU-qq-TY3"/>
+                                    <constraint firstItem="Tdp-d1-Ssj" firstAttribute="centerX" secondItem="f6m-HQ-RxH" secondAttribute="centerX" id="6EO-pP-rXo"/>
+                                    <constraint firstItem="DaB-IB-mgN" firstAttribute="leading" secondItem="f6m-HQ-RxH" secondAttribute="leading" constant="10" id="upu-yA-iAZ"/>
+                                    <constraint firstItem="Tdp-d1-Ssj" firstAttribute="centerY" secondItem="DaB-IB-mgN" secondAttribute="centerY" id="ynl-Fs-mF2"/>
+                                    <constraint firstAttribute="height" constant="70" id="zOB-oK-2fH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VSq-v4-ViI" firstAttribute="top" secondItem="f6m-HQ-RxH" secondAttribute="bottom" id="31j-zC-lRK"/>
+                            <constraint firstItem="f6m-HQ-RxH" firstAttribute="top" secondItem="Ipi-33-prF" secondAttribute="top" id="H38-2h-mFS"/>
+                            <constraint firstItem="f6m-HQ-RxH" firstAttribute="leading" secondItem="Ipi-33-prF" secondAttribute="leading" id="LVv-Kj-ZYk"/>
+                            <constraint firstAttribute="trailing" secondItem="VSq-v4-ViI" secondAttribute="trailing" id="MPw-1p-knQ"/>
+                            <constraint firstItem="Hcg-ao-BKY" firstAttribute="top" secondItem="VSq-v4-ViI" secondAttribute="bottom" id="Yuy-Z0-Bn4"/>
+                            <constraint firstItem="VSq-v4-ViI" firstAttribute="leading" secondItem="Ipi-33-prF" secondAttribute="leading" id="mKR-0T-qmL"/>
+                            <constraint firstAttribute="trailing" secondItem="f6m-HQ-RxH" secondAttribute="trailing" id="vaE-wT-4P1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelTitle" destination="Tdp-d1-Ssj" id="lPK-AZ-Sm7"/>
+                        <outlet property="webView" destination="VSq-v4-ViI" id="aPt-LK-KUZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xL-Sp-SH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>

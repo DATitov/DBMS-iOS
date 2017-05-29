@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  DBMS
+
+  Created by Dmitrii Titov on 27.05.17.
+  Copyright © 2017 Dmitrii Titov. All rights reserved.
+ */
+
+// Russian
+
+// Alerts
+"new_table_alert_title" = "Новая таблица";
+"new_table_alert_message" = "Введите имя для новой таблицы";
+"new_attribute_alert_title" = "Новый аттрибут";
+"new_attribute_alert_message" = "Введите имя для нового аттрибута таблицы";
+"new_request_alert_title" = "Новый запрос";
+"new_request_alert_message" = "Введите имя для нового запроса";
+
+"name_is_already_used" = "Это имя уже используется";
+"request_add_conditions" = "Условия";
+"request_add_selection" = "Выбор";
+"what_to_add" = "Что добавить?";
+"what_to_create" = "Что создать?";
+"name_is_not_valid" = "Неправильный формат имени";
+
+// Common
+"error" = "Ошибка";
+"ok" = "Ок";
+"cancel" = "Отмена";
+"back" = "Назад";
+"remove" = "Удалить";
+"yes" = "Да";
+"no" = "Нет";
+"save" = "Сохранить";
+"execute" = "Выполнить";
+"create" = "Создать";
+"continue" = "Продолжить";
+"done" = "Готово";
+"add" = "Добавить";
+"select" = "Выбрать";
+"from" = "Из";
+
+// Other
+"choose" = "Выбрать";
+"dbms" = "СУБД";
+"choose_framework" = "Выберите библиотеку";
+"data_bases_management_system" = "Система Управления Базами Данных";
+"file_system" = "Файловая Система";
+"requests" = "Запросы";
+"request" = "Запрос";
+"fill_db" = "Заполнение базы данных";
+"configure_tables" = "Настройка таблиц";
+"data_type" = "Тип данных";
+"type" = "Тип";
+"request_name" = "Название запроса";
+"table_name" = "Название таблицы";
+"attribute_name" = "Название аттрибута";
+"request_selection_items" = "Select:";
+"request_from" = "From:";
+"request_conditions" = "Where:";
+"request_sources_title" = "Ресурс запроса";
+"tables" = "Таблицы";
+"table" = "Таблица";
+"attribute" = "Аттрибут";
+"requests" = "Запросы";
+"relationships" = "Связи";
+"relationship" = "Связь";
+"request_selection_attributes" = "Аттрибуты запроса";
+"fill_tables_title" = "Заполнения таблиц";
+"file_system_short" = "ФС";
+"name_available" = "Имя доступно";
+"equal_to_existing_name" = "Существующее имя";
+"select_the_attribute" = "Выберите аттрибут";
+"remove_table" = "Remove table";
+
+//"<#smth#>" = "<#smth#>";

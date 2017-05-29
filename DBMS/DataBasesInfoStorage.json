@@ -1,0 +1,50 @@
+{
+    "frameworks_available" : [
+                              {
+                              "data_base_framework" : "SQLite"
+                              },
+                              {
+                              "data_base_framework" : "FMDB"
+                              },
+                              {
+                              "data_base_framework" : "Core Data"
+                              },
+                              {
+                              "data_base_framework" : "File System"
+                              }
+                              ],
+    "frameworks_info" : [
+                         {
+                         "data_base_framework" : "SQLite",
+                         "editing_enabled" : 1,
+                         "unique_available" : 0,
+                         "nullable_available" : 0,
+                         "primary_key_available" : 0,
+                         "empty_table_available" : 0
+                         },
+                         {
+                         "data_base_framework" : "FMDB",
+                         "editing_enabled" : 1,
+                         "unique_available" : 1,
+                         "nullable_available" : 1,
+                         "primary_key_available" : 1,
+                         "empty_table_available" : 0
+                         },
+                         {
+                         "data_base_framework" : "Core Data",
+                         "editing_enabled" : 1,
+                         "unique_available" : 1,
+                         "nullable_available" : 1,
+                         "primary_key_available" : 1,
+                         "empty_table_available" :1
+                         },
+                         {
+                         "data_base_framework" : "File System",
+                         "editing_enabled" : 1,
+                         "unique_available" : 1,
+                         "nullable_available" : 1,
+                         "primary_key_available" : 1,
+                         "empty_table_available" : 1
+                         }
+                         ]
+}

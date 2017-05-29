@@ -1,0 +1,233 @@
+//
+//  DataInteractor
+//  SQLClient
+//
+//  Created by Александр Кузяев 2 on 19/03/17.
+//  Copyright © 2017 Dmitrii Titov. All rights reserved.
+//
+
+import Foundation
+import SQLite
+
+class DataInteractor {
+    
+    static let shared: DataInteractor = {
+        let instance = DataInteractor()
+        instance.createDatabase()
+        instance.setDefaultTables()
+        instance.removeAllTables()
+        instance.addInfo()
+        return instance
+    }()
+    
+    var db: Connection! {
+        didSet {
+            DefaulTablesGenerator.db = db
+        }
+    }
+    
+    let human_sex = Table("human_sex")
+    let scram_master = Table("scram_master")
+    let human = Table("human")
+    let product_owner = Table("product_owner")
+    let task_type = Table("task_type")
+    let task_state = Table("task_state")
+    let task_priority = Table("task_priority")
+    let project = Table("project")
+    let client = Table("client")
+    let sprint = Table("sprint")
+    let scram_meeting = Table("scram_meeting")
+    let team = Table("team")
+    let team_member = Table("team_member")
+    let team_member_specialization = Table("team_member_specialization")
+    let task = Table("task")
+    let deadline = Table("deadline")
+    let build = Table("build")
+    
+    var tables = [Table]()
+    
+    let master_table = Table("SQLITE_MASTER")
+
+    init() { }
+    
+    func createDatabase() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+        db = try? Connection("\(path)/db.sqlite3")
+        
+        self.createTable(table: TableData(name: "Table1", properties: [TableProperty(name: "column1", type: .String),TableProperty(name: "column2", type: .String)]))
+        
+        
+        self.getTableSchema(tableName: "Table1")
+    }
+    
+    func createTable(table : TableData) {
+        var propertiesString = String()
+        for index in 0..<table.properties.count {
+            let separatorSymbol = index == table.properties.count - 1 ? "" : ","
+            propertiesString += "\(table.properties[index].name) \(table.properties[index].type.rawValue)\(separatorSymbol) "
+        }
+        let executeString = "BEGIN TRANSACTION; " +
+            "CREATE TABLE \(table.name) (" +
+            propertiesString +
+        "); COMMIT TRANSACTION;"
+        
+        try? db.execute (executeString)
+    }
+    func removeAllTables() {
+        
+        for table in tables {
+//            checkTable(table: table)
+//            _ = try? db.run(table.drop(ifExists: true))
+//            checkTable(table: table)
+        }
+        
+        
+        let table = try? db.execute (
+            "SELECT * FROM \"Table1\";"
+        )
+        
+//        try? db.execute(
+//            "DROP TABLE SELECT * FROM sqlite_master;"
+//        )
+        
+        
+        
+        let executeString2 = "INSERT INTO \"Table1\" (\"column1\", \"column2\") VALUES (\'er\', \'re\'); "//"BEGIN TRANSACTION; " +
+            // +
+        //" COMMIT TRANSACTION;"
+        
+        let sTable = Table("Table1")
+        
+        let column1 = Expression<String>("column1")
+        let column2 = Expression<String>("column2")
+        try? db.run(sTable.insert(column1 <- "re1", column2 <- "re2"))
+        
+        
+        
+        try? db.run (executeString2)
+ 
+        // UPDATE "users" SET "balance" = "balance" - 100.0 WHERE ("id" = 1)
+        // UPDATE "users" SET "balance" = "balance" + 100.0 WHERE ("id" = 2)
+        // COMMIT TRANSACTION
+        
+        let table2 = try? db.execute (
+            "SELECT * FROM \"Table1\";"
+        )
+        
+        for sex in try! db.prepare(sTable) {
+            print("column1: \(sex[Expression<String>("column1")]), column2: \(sex[Expression<String>("column2")])")
+        }
+
+        
+        print()
+    }
+    
+    func getTableSchema(tableName : String) -> Statement {
+        
+        let executeString = "PRAGMA TABLE_INFO(\"\(tableName)\");"
+        
+        
+        //let responce = try? db.prepare(executeString)
+        let responce = try! db.prepare(executeString)
+        /*
+        for t in  responce{
+            print("\(t) \n")
+        }
+ */
+        
+        return responce
+    }
+    
+    func setDefaultTables() {
+        DefaulTablesGenerator.setDefaultHumanSex(table: human_sex)
+        DefaulTablesGenerator.setDefaultScramMaster(table: scram_master)
+        DefaulTablesGenerator.setDefaultHuman(table: human)
+        DefaulTablesGenerator.setDefaultTask(table: task)
+        DefaulTablesGenerator.setDefaultTaskState(table: task_state)
+        DefaulTablesGenerator.setDefaultTaskType(table: task_type)
+        DefaulTablesGenerator.setDefaultTaskPriority(table: task_priority)
+        DefaulTablesGenerator.setDefaultDeadline(table: deadline)
+        DefaulTablesGenerator.setDefaultProductOwner(table: product_owner)
+        DefaulTablesGenerator.setDefaultProject(table: project)
+        DefaulTablesGenerator.setDefaultTeam(table: team)
+        DefaulTablesGenerator.setDefaultClient(table: client)
+        DefaulTablesGenerator.setDefaultSprint(table: sprint)
+        DefaulTablesGenerator.setDefaultScramMeeting(table: scram_meeting)
+        DefaulTablesGenerator.setDefaultBuild(table: build)
+        DefaulTablesGenerator.setDefaultTeamMember(table: team_member)
+        DefaulTablesGenerator.setDefaultTeamMemberSpecialization(table: team_member_specialization)
+        tables = [human_sex, scram_master, human, product_owner, task_type, task_state, task_priority, project, client, sprint, scram_meeting, team, team_member, team_member_specialization, task, deadline, build]
+    }
+    
+    func addInfo() {
+        let name = Expression<String>("name")
+        _ = try? db.run(human_sex.insert(name <- "Титов"))
+        for sex in try! db.prepare(human_sex) {
+            print("id: \(sex[Expression<Int64>("id")]), name: \(sex[Expression<String>("name")])")
+        }
+    }
+    
+    func checkTable(table: Table) -> Bool{
+        if ((try? db.prepare(table).first(where: { (row) -> Bool in
+            return true
+        })) != nil) {
+            print("table IN DB")
+            return true
+        } else {
+            print("table NOT IN DB")
+            return false
+        }
+    }
+    
+<<<<<<< dbb4de5ae6a699315b9534f7154574750ea8074e
+=======
+    func checkTable(tableName: String) -> Bool {
+        return self.getAllTablesNames().contains(tableName)
+    }
+    
+    
+>>>>>>> droping tables
+    func codeSamples(){
+        
+        //"SELECT * FROM SQLITE_MASTER" //+
+        //"WHERE TABLE_NAME = \'\(tableName)\'"
+        
+        for sex in try! db.prepare(master_table) {
+            print("name: \(sex[Expression<String>("name")]), tbl_name: \(sex[Expression<String>("tbl_name")])")
+            //type: \(sex[Expression<Int64>("type")])
+            //name: \(sex[Expression<String>("name"),
+            //tbl_name: \(sex[Expression<String>("tbl_name")])
+            //sql: \(sex[Expression<String>("sql")]),\n
+            //rootpage: \(sex[Expression<String>("rootpage")])  \n\n
+        }
+        
+    }
+    
+    func getTableName(table: Table) -> String {
+        return table.clauses.from.name
+    }
+    
+    func getAllTablesNames() -> [String] {
+        var array = [String]()
+        for table in try! db.prepare(master_table) {
+            array.append(table[Expression<String>("tbl_name")])
+        }
+        return array
+    }
+    
+    func deleteTable(tableName: String) -> Bool {
+        let executeString = "DROP TABLE \"\(tableName)\";"
+        _ = try? db.run(executeString)
+        let ok = !self.checkTable(tableName: tableName)
+        if ok {
+            print("\n\n+ + +\n\n")
+        }else{
+            print("\n\n- - -\n\n")
+        }
+        return ok
+    }
+    
+}
