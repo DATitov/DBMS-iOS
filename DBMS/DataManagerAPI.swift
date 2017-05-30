@@ -84,7 +84,7 @@ class DataManagerAPI: NSObject {
     // MARK: References
     
     func references(dbFramework: DataBaseFramework) -> [TablesRelationship] {
-        return connector.relationshipsManager.references(dbFramework: dbFramework)
+        return connector.relationshipsManager.relationships(dbFramework: dbFramework)
     }
     
     func addRelationship(dbFramework: DataBaseFramework, relationship: TablesRelationship) {
@@ -139,6 +139,10 @@ class DataManagerAPI: NSObject {
     
     func removeConditionItem(request: RequestRealmObject, conditionItem: RequestConditionItem) {
         connector.requestsManager.removeConditionItem(request: request, conditionItem: conditionItem)
+    }
+    
+    func reactOnAppBeingClosed() {
+        connector.reactOnAppBeingClosed()
     }
     
 }

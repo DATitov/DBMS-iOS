@@ -35,4 +35,10 @@ class DBFrameworkInteractorConnecter: NSObject {
         }
     }
     
+    
+    func reactOnAppBeingClosed() {
+        relationshipsManager.clearRelationships(dbFramework: .CoreData)
+        requestsManager.clearRequests(dbFramework: .CoreData)
+    }
+    
 }

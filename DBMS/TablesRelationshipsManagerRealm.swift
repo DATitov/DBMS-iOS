@@ -37,7 +37,7 @@ class TablesRelationshipsManagerRealm: NSObject {
 
 extension TablesRelationshipsManagerRealm: TablesReferencesManagerProtocol {
     
-    func references(dbFramework: DataBaseFramework) -> [TablesRelationship] {
+    func relationships(dbFramework: DataBaseFramework) -> [TablesRelationship] {
         guard let storage = self.storage(dbFramework: dbFramework) else {
             return [TablesRelationship]()
         }
@@ -62,6 +62,19 @@ extension TablesRelationshipsManagerRealm: TablesReferencesManagerProtocol {
         do {
             try realm.write {
                     realm.delete(relationship)
+            }
+        } catch  {
+            print(error)
+        }
+    }
+    
+    func clearRelationships(dbFramework: DataBaseFramework) {
+        let relationships = self.relationships(dbFramework: dbFramework)
+        do {
+            try realm.write {
+                for relationship in relationships {
+                    realm.delete(relationship)
+                }
             }
         } catch  {
             print(error)

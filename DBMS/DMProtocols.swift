@@ -46,9 +46,10 @@ protocol EditingTableEditingDMProtocol {
 // MARK: references
 
 protocol TablesReferencesManagerProtocol {
-    func references(dbFramework: DataBaseFramework) -> [TablesRelationship]
+    func relationships(dbFramework: DataBaseFramework) -> [TablesRelationship]
     func addRelationship(dbFramework: DataBaseFramework, relationship: TablesRelationship)
     func removeRelationship(dbFramework: DataBaseFramework, relationship: TablesRelationship)
+    func clearRelationships(dbFramework: DataBaseFramework)
 }
 
 // MARK: Requests

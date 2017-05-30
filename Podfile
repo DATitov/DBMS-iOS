@@ -7,7 +7,6 @@ target ‘DBMS’ do
   
   pod 'SQLite.swift', '~> 0.11.2'
   pod 'FMDB'
-  pod 'SimplePDF'
   pod 'RxSwift',    '~> 3.0'
   pod 'RxCocoa',    '~> 3.0'
   pod 'ObjectMapper', '~> 2.2'

@@ -8,7 +8,6 @@
 //
 
 import Foundation
-import SimplePDF
 
 class FillTablesListVM: NSObject {
     
