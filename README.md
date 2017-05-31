@@ -1,14 +1,15 @@
 # Database Managements System for iOS
 
-#DBMS-iOS is an app which let you modify the database schema in runtime, fill db and execute requests
+DBMS-iOS is an app which let you modify the database schema in runtime, fill db and execute requests
 
 What you can do with DBMS in runtime:
 - Create Entities
 - Modify Entities and it's attributes
 - Fill and fetch records from database
 - Execute fetch requests combining results from entities and other requests
+
 ---
-#DBMS use 3 frameworks and File System
+DBMS use 3 frameworks and File System
 - SQLite.Swift
 - FMBD
 - Core Data. 
