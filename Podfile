@@ -5,6 +5,8 @@ target ‘DBMS’ do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
+  #source 'https://github.com/CocoaPods/Specs.git'
+  
   pod 'SQLite.swift', '~> 0.11.2'
   pod 'FMDB'
   pod 'RxSwift',    '~> 3.0'
@@ -12,6 +14,8 @@ target ‘DBMS’ do
   pod 'ObjectMapper', '~> 2.2'
   pod 'pop', '~> 1.0'
   pod 'RealmSwift'
+  pod 'DTAlertViewContainer', '~> 0.1.2'
+  #pod 'DTAlertViewContainer', :path => '~/Documents/Libraries/DTAlertViewContainer'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

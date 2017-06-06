@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DTAlertViewContainer
 
 private let sharedInstance = DataBaseRouter()
 
@@ -77,8 +78,13 @@ class DataBaseRouter: NSObject {
     }
     
     func showRequestEditConditionScreen(dbFramework: DataBaseFramework, conditionItem: RequestConditionItem, availableSelectionItems: [RequestSelectionItem]) {
-        let vc = StoryboardHelper.requestEditConditionItemVC(dbFramework: dbFramework, conditionItem: conditionItem, availableSelectionItems: availableSelectionItems)
-        mainNavigationController.topViewController?.present(vc, animated: true) { }
+        let vc = DTAlertViewContainerController()
+        vc.appearenceDuration = 0.3
+        vc.scrollView.isScrollEnabled = false
+        vc.alertViewContainsTableView = true
+        let viewModel = RequestEditConditionItemVM(dbFramework: dbFramework, conditionItem: conditionItem, availableSelectionItems: availableSelectionItems)
+        let alertView = RequestEditConditionItemView(viewModel: viewModel)
+        vc.presentOverVC(mainNavigationController.topViewController, alert: alertView, appearenceAnimation: .fade, completion: nil)
     }
     
     func showRequestExecutionResultScreen(dbFramework: DataBaseFramework, requestName: String) {

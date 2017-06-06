@@ -11,4 +11,6 @@
 
 #import <POP/POP.h>
 
+#import <DTAlertViewContainer/DTAlertViewContainer.h>
+
 #endif /* DBMS-Bridging-Header_h */

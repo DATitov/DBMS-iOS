@@ -8,12 +8,11 @@
 
 import UIKit
 import RxSwift
+import DTAlertViewContainer
 
 class RequestEditConditionItemView: UIView {
     
     let disposeBag = DisposeBag()
-    
-    let requiredHeight = Variable<CGFloat>(0)
     
     let selectionItemDropdown = DropdownView()
     let typePiclerView = UIPickerView()
@@ -26,7 +25,19 @@ class RequestEditConditionItemView: UIView {
     
     var viewModel: RequestEditConditionItemVM!
     
-    weak var delegate: AlertViewDelegate?
+    weak var delegate: DTAlertViewDelegate?
+    var requiredHeight = 0.0 as CGFloat
+    var frameToFocus = CGRect.zero
+    var needToFocus = false
+    
+    //weak var delegate: AlertViewDelegate?
+    
+    init(viewModel: RequestEditConditionItemVM) {
+        super.init(frame: CGRect.zero)
+        self.bindViewModel(viewModel: viewModel)
+        self.setupUI()
+        self.initBindings()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -129,8 +140,13 @@ class RequestEditConditionItemView: UIView {
     func initBindings() {
         
         _ = selectionItemDropdown.requiredHeight.asObservable()
+            .map({ [unowned self] _ -> CGFloat in
+                return self.calculateRequiredHeight()
+            })
             .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { [unowned self] _ in
+            .subscribe(onNext: { [unowned self] (requiredHeight) in
+                self.requiredHeight = requiredHeight
+                self.delegate?.layoutAlertView(animated: true)
                 UIView.animate(withDuration: 0.3,
                                delay: 0,
                                usingSpringWithDamping: 0.6,
@@ -143,13 +159,6 @@ class RequestEditConditionItemView: UIView {
             })
             .disposed(by: disposeBag)
         
-        _ = selectionItemDropdown.requiredHeight.asObservable()
-            .map({ [unowned self] _ -> CGFloat in
-                return self.calculateRequiredHeight()
-            })
-            .bindTo(self.requiredHeight)
-            .disposed(by: disposeBag)
-        
         _ = selectionItemDropdown.state.asObservable()
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { (state) in
@@ -158,6 +167,14 @@ class RequestEditConditionItemView: UIView {
                 }
             })
             .disposed(by: disposeBag)
+        
+    }
+    
+}
+
+extension RequestEditConditionItemView: DTAlertViewProtocol {
+    
+    func backgroundPressed() {
         
     }
     
@@ -296,7 +313,7 @@ extension RequestEditConditionItemView { // MARK: Actions
             selectionItemDropdown.state.value = DropdownViewState.Unselected
         }
         valueTextField.resignFirstResponder()
-        delegate?.cancelButtonPressed()
+        delegate?.dismiss()
     }
     
     @objc func saveButtonPressed() {

@@ -89,13 +89,6 @@ class StoryboardHelper: NSObject {
         return vc
     }
     
-    class func requestEditConditionItemVC(dbFramework: DataBaseFramework, conditionItem: RequestConditionItem, availableSelectionItems: [RequestSelectionItem]) -> RequestEditConditionItemVC {
-        let vc = Storyboard.request.instantiateViewController(withIdentifier: "RequestEditConditionItemVC") as! RequestEditConditionItemVC
-        let viewModel = RequestEditConditionItemVM(dbFramework: dbFramework, conditionItem: conditionItem, availableSelectionItems: availableSelectionItems)
-        vc.viewModel = viewModel
-        return vc
-    }
-    
     class func requestExecutionResultVC(dbFramework: DataBaseFramework, requestName: String) -> RequestExecutionResultVC {
         let vc = Storyboard.request.instantiateViewController(withIdentifier: "RequestExecutionResultVC") as! RequestExecutionResultVC
         let viewModel = RequestExecutionResultVM(dbFramework: dbFramework, requestName: requestName)

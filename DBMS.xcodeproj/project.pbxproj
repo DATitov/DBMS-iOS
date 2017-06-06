@@ -75,7 +75,6 @@
 		28707B0C1ED422D10015E02C /* RequestConditionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B0B1ED422D10015E02C /* RequestConditionItem.swift */; };
 		28707B0F1ED432D80015E02C /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B0E1ED432D80015E02C /* DropdownView.swift */; };
 		28707B111ED433AF0015E02C /* DropdownHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B101ED433AF0015E02C /* DropdownHeaderButton.swift */; };
-		28707B191ED4888A0015E02C /* RequestEditConditionItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B181ED4888A0015E02C /* RequestEditConditionItemVC.swift */; };
 		28707B1B1ED488970015E02C /* RequestEditConditionItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B1A1ED488970015E02C /* RequestEditConditionItemVM.swift */; };
 		28707B1E1ED494F10015E02C /* RequestEditConditionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B1D1ED494F10015E02C /* RequestEditConditionItemView.swift */; };
 		28707B201ED4B4010015E02C /* RequestEditConditionItemBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28707B1F1ED4B4010015E02C /* RequestEditConditionItemBackgroundView.swift */; };
@@ -267,7 +266,6 @@
 		28707B0B1ED422D10015E02C /* RequestConditionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConditionItem.swift; sourceTree = "<group>"; };
 		28707B0E1ED432D80015E02C /* DropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		28707B101ED433AF0015E02C /* DropdownHeaderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownHeaderButton.swift; sourceTree = "<group>"; };
-		28707B181ED4888A0015E02C /* RequestEditConditionItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEditConditionItemVC.swift; sourceTree = "<group>"; };
 		28707B1A1ED488970015E02C /* RequestEditConditionItemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEditConditionItemVM.swift; sourceTree = "<group>"; };
 		28707B1D1ED494F10015E02C /* RequestEditConditionItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEditConditionItemView.swift; sourceTree = "<group>"; };
 		28707B1F1ED4B4010015E02C /* RequestEditConditionItemBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEditConditionItemBackgroundView.swift; sourceTree = "<group>"; };
@@ -863,7 +861,6 @@
 		28707B171ED488740015E02C /* RequestEditConditionItem */ = {
 			isa = PBXGroup;
 			children = (
-				28707B181ED4888A0015E02C /* RequestEditConditionItemVC.swift */,
 				28707B1A1ED488970015E02C /* RequestEditConditionItemVM.swift */,
 			);
 			name = RequestEditConditionItem;
@@ -1696,7 +1693,6 @@
 				287485CA1EA8DAAD00A5CA31 /* AppInfoManager.swift in Sources */,
 				28AC65271ECDE65D0043A281 /* RelationshipSideInteractor.swift in Sources */,
 				471910411E81751100A95CC2 /* Record.swift in Sources */,
-				28707B191ED4888A0015E02C /* RequestEditConditionItemVC.swift in Sources */,
 				28EF3A641ED1A2BF00B0E037 /* NBSimulatorSelection.swift in Sources */,
 				28F329871E901D8C005F0B97 /* DataBaseVM.swift in Sources */,
 				286E45451E7E9F0C00307BFE /* SettingsTableViewController.swift in Sources */,
@@ -1971,10 +1967,12 @@
 				INFOPLIST_FILE = DBMS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = DT.DBMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DBMS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1985,13 +1983,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CW4GWQZXWG;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = DBMS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = DT.DBMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DBMS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
