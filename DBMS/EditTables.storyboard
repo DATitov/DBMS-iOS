@@ -158,53 +158,5 @@
             </objects>
             <point key="canvasLocation" x="2301.5999999999999" y="259.52023988005999"/>
         </scene>
-        <!--Edit RelationshipVC-->
-        <scene sceneID="tEZ-pn-OO6">
-            <objects>
-                <viewController storyboardIdentifier="EditRelationshipVC" modalPresentationStyle="overCurrentContext" id="YTh-Bl-Z6i" customClass="EditRelationshipVC" customModule="DBMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="z8x-Ij-U1B"/>
-                        <viewControllerLayoutGuide type="bottom" id="fnv-kx-P7m"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e2L-iy-Htq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyH-iq-00u" customClass="AlertViewBackgroundButton" customModule="DBMS" customModuleProvider="target">
-                                <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLR-0t-0K9">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJy-mM-NUL" customClass="RelationshipView" customModule="DBMS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="EyH-iq-00u" firstAttribute="width" secondItem="e2L-iy-Htq" secondAttribute="width" id="7vK-qV-Gc9"/>
-                            <constraint firstItem="EyH-iq-00u" firstAttribute="centerX" secondItem="e2L-iy-Htq" secondAttribute="centerX" id="T93-ct-or7"/>
-                            <constraint firstItem="uLR-0t-0K9" firstAttribute="width" secondItem="e2L-iy-Htq" secondAttribute="width" id="WKh-bl-Gfb"/>
-                            <constraint firstItem="uLR-0t-0K9" firstAttribute="height" secondItem="e2L-iy-Htq" secondAttribute="height" id="XOh-hV-Dt3"/>
-                            <constraint firstItem="EyH-iq-00u" firstAttribute="centerY" secondItem="e2L-iy-Htq" secondAttribute="centerY" id="alv-rF-WHh"/>
-                            <constraint firstItem="uLR-0t-0K9" firstAttribute="centerX" secondItem="e2L-iy-Htq" secondAttribute="centerX" id="h5N-Sa-VFs"/>
-                            <constraint firstItem="uLR-0t-0K9" firstAttribute="centerY" secondItem="e2L-iy-Htq" secondAttribute="centerY" id="iKi-Yu-hr2"/>
-                            <constraint firstItem="EyH-iq-00u" firstAttribute="height" secondItem="e2L-iy-Htq" secondAttribute="height" id="yUo-AU-HZu"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundButton" destination="EyH-iq-00u" id="0e5-fZ-czH"/>
-                        <outlet property="relationshipView" destination="pJy-mM-NUL" id="9LW-7k-Pl4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="50S-E7-fus" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3386" y="252"/>
-        </scene>
     </scenes>
 </document>

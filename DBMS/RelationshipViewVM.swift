@@ -156,5 +156,9 @@ class RelationshipViewVM: NSObject {
         
         return relationship
     }
+    
+    func saveRelationship(relationship: TablesRelationship) {
+        DataManagerAPI.shared.addRelationship(dbFramework: dbFramework, relationship: relationship)
+    }
 
 }

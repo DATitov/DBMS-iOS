@@ -108,55 +108,5 @@
             </objects>
             <point key="canvasLocation" x="839.20000000000005" y="136.28185907046478"/>
         </scene>
-        <!--RecordVC-->
-        <scene sceneID="B8b-Xz-JQQ">
-            <objects>
-                <viewController storyboardIdentifier="RecordVC" modalPresentationStyle="overFullScreen" id="Wlw-O4-QK9" customClass="RecordVC" customModule="DBMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="80P-uv-iDa"/>
-                        <viewControllerLayoutGuide type="bottom" id="HFa-xH-fk3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eLX-Ph-4Iy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zU-7A-t9c" customClass="AlertViewBackgroundButton" customModule="DBMS" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.66237012699999998" green="0.78386881990000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16B-Uy-vMI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebW-iF-fMS" customClass="RecordView" customModule="DBMS" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="100" width="304" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="HFa-xH-fk3" firstAttribute="top" secondItem="2zU-7A-t9c" secondAttribute="bottom" constant="0.5" id="5VO-ua-bSz"/>
-                            <constraint firstItem="2zU-7A-t9c" firstAttribute="leading" secondItem="eLX-Ph-4Iy" secondAttribute="leadingMargin" constant="-16.5" id="5yY-dP-eS6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="16B-Uy-vMI" secondAttribute="trailing" constant="-16" id="BQb-A9-rrY"/>
-                            <constraint firstItem="HFa-xH-fk3" firstAttribute="top" secondItem="16B-Uy-vMI" secondAttribute="bottom" id="a3c-X3-FoD"/>
-                            <constraint firstItem="16B-Uy-vMI" firstAttribute="leading" secondItem="eLX-Ph-4Iy" secondAttribute="leadingMargin" constant="-16" id="cBc-fu-yi9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2zU-7A-t9c" secondAttribute="trailing" constant="-15.5" id="loi-do-jju"/>
-                            <constraint firstItem="2zU-7A-t9c" firstAttribute="top" secondItem="80P-uv-iDa" secondAttribute="bottom" constant="-20.5" id="mRv-Cu-FEG"/>
-                            <constraint firstItem="16B-Uy-vMI" firstAttribute="top" secondItem="80P-uv-iDa" secondAttribute="bottom" constant="-20" id="vov-xp-Enm"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundButton" destination="2zU-7A-t9c" id="8Cq-A5-P4E"/>
-                        <outlet property="recordView" destination="ebW-iF-fMS" id="9p9-CC-1UA"/>
-                        <outlet property="scrollView" destination="16B-Uy-vMI" id="s8R-uV-J0n"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vEs-xB-CBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1879.2" y="138.98050974512745"/>
-        </scene>
     </scenes>
 </document>

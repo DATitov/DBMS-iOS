@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		07EF9D4FEF03A8A448777AF2 /* Pods_DBMSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A11FEDE9384F8B65F40EE5 /* Pods_DBMSTests.framework */; };
-		2805FC2F1EC7118A00211D5A /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805FC2E1EC7118A00211D5A /* RecordVC.swift */; };
 		2805FC331EC7133400211D5A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805FC321EC7133400211D5A /* RecordView.swift */; };
 		2805FC351EC7210600211D5A /* RecordEditValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805FC341EC7210600211D5A /* RecordEditValueView.swift */; };
 		2805FC371EC7330600211D5A /* RecordScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2805FC361EC7330600211D5A /* RecordScreenVM.swift */; };
@@ -130,7 +129,7 @@
 		28AC65241ECDD6FB0043A281 /* RelationshipSideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC65231ECDD6FB0043A281 /* RelationshipSideBackgroundView.swift */; };
 		28AC65271ECDE65D0043A281 /* RelationshipSideInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC65261ECDE65D0043A281 /* RelationshipSideInteractor.swift */; };
 		28AC65291ECE19650043A281 /* RelationshipViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC65281ECE19650043A281 /* RelationshipViewVM.swift */; };
-		28AC652C1ECE29A70043A281 /* numberOfRelationshipTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC652B1ECE29A70043A281 /* numberOfRelationshipTypes.swift */; };
+		28AC652C1ECE29A70043A281 /* TablesRelationshipTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC652B1ECE29A70043A281 /* TablesRelationshipTypeView.swift */; };
 		28AC652E1ECE2A0D0043A281 /* TablesRelationshipTypeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC652D1ECE2A0D0043A281 /* TablesRelationshipTypeViewVM.swift */; };
 		28D70EA11E81DF3A00E6917E /* RequestParamsStrTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D70E9F1E81DF3A00E6917E /* RequestParamsStrTVCell.swift */; };
 		28D70EA21E81DF3A00E6917E /* RequestParamsStrTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D70EA01E81DF3A00E6917E /* RequestParamsStrTVCell.xib */; };
@@ -139,9 +138,7 @@
 		28EB2AB71ECCBD6F00614D80 /* RelationshipTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2AB51ECCBD6F00614D80 /* RelationshipTVCell.swift */; };
 		28EB2AB81ECCBD6F00614D80 /* RelationshipTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28EB2AB61ECCBD6F00614D80 /* RelationshipTVCell.xib */; };
 		28EB2ABB1ECCC3EB00614D80 /* OneLabelTVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2ABA1ECCC3EB00614D80 /* OneLabelTVHeader.swift */; };
-		28EB2ABE1ECDACEC00614D80 /* EditRelationshipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2ABD1ECDACEC00614D80 /* EditRelationshipVC.swift */; };
 		28EB2AC11ECDADAA00614D80 /* RelationshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2AC01ECDADAA00614D80 /* RelationshipView.swift */; };
-		28EB2AC31ECDAE0E00614D80 /* EditRelationshipVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2AC21ECDAE0E00614D80 /* EditRelationshipVM.swift */; };
 		28EB2AC51ECDB45B00614D80 /* AlertViewBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2AC41ECDB45B00614D80 /* AlertViewBackgroundButton.swift */; };
 		28EB2AC71ECDD57E00614D80 /* RelationshipSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2AC61ECDD57E00614D80 /* RelationshipSideView.swift */; };
 		28EF3A401ED080ED00B0E037 /* RequestTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EF3A3F1ED080ED00B0E037 /* RequestTVCell.swift */; };
@@ -190,7 +187,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2805FC2E1EC7118A00211D5A /* RecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		2805FC321EC7133400211D5A /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		2805FC341EC7210600211D5A /* RecordEditValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordEditValueView.swift; sourceTree = "<group>"; };
 		2805FC361EC7330600211D5A /* RecordScreenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordScreenVM.swift; sourceTree = "<group>"; };
@@ -321,7 +317,7 @@
 		28AC65231ECDD6FB0043A281 /* RelationshipSideBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipSideBackgroundView.swift; sourceTree = "<group>"; };
 		28AC65261ECDE65D0043A281 /* RelationshipSideInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipSideInteractor.swift; sourceTree = "<group>"; };
 		28AC65281ECE19650043A281 /* RelationshipViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipViewVM.swift; sourceTree = "<group>"; };
-		28AC652B1ECE29A70043A281 /* numberOfRelationshipTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numberOfRelationshipTypes.swift; sourceTree = "<group>"; };
+		28AC652B1ECE29A70043A281 /* TablesRelationshipTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablesRelationshipTypeView.swift; sourceTree = "<group>"; };
 		28AC652D1ECE2A0D0043A281 /* TablesRelationshipTypeViewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablesRelationshipTypeViewVM.swift; sourceTree = "<group>"; };
 		28D70E9F1E81DF3A00E6917E /* RequestParamsStrTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParamsStrTVCell.swift; sourceTree = "<group>"; };
 		28D70EA01E81DF3A00E6917E /* RequestParamsStrTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestParamsStrTVCell.xib; sourceTree = "<group>"; };
@@ -330,9 +326,7 @@
 		28EB2AB51ECCBD6F00614D80 /* RelationshipTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipTVCell.swift; sourceTree = "<group>"; };
 		28EB2AB61ECCBD6F00614D80 /* RelationshipTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelationshipTVCell.xib; sourceTree = "<group>"; };
 		28EB2ABA1ECCC3EB00614D80 /* OneLabelTVHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneLabelTVHeader.swift; sourceTree = "<group>"; };
-		28EB2ABD1ECDACEC00614D80 /* EditRelationshipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRelationshipVC.swift; sourceTree = "<group>"; };
 		28EB2AC01ECDADAA00614D80 /* RelationshipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipView.swift; sourceTree = "<group>"; };
-		28EB2AC21ECDAE0E00614D80 /* EditRelationshipVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRelationshipVM.swift; sourceTree = "<group>"; };
 		28EB2AC41ECDB45B00614D80 /* AlertViewBackgroundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewBackgroundButton.swift; sourceTree = "<group>"; };
 		28EB2AC61ECDD57E00614D80 /* RelationshipSideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipSideView.swift; sourceTree = "<group>"; };
 		28EF3A3F1ED080ED00B0E037 /* RequestTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTVCell.swift; sourceTree = "<group>"; };
@@ -776,7 +770,6 @@
 				286E452E1E7E90A400307BFE /* EditTablesList */,
 				286E452D1E7E908100307BFE /* EditTable */,
 				28381B771E806BF1006B0398 /* EditColumn */,
-				28EB2ABC1ECDACC700614D80 /* EditRelationshipVC */,
 			);
 			name = TableEditing;
 			sourceTree = "<group>";
@@ -1159,7 +1152,7 @@
 		28AC652A1ECE29990043A281 /* TablesRelationshipTypeView */ = {
 			isa = PBXGroup;
 			children = (
-				28AC652B1ECE29A70043A281 /* numberOfRelationshipTypes.swift */,
+				28AC652B1ECE29A70043A281 /* TablesRelationshipTypeView.swift */,
 				28AC652D1ECE2A0D0043A281 /* TablesRelationshipTypeViewVM.swift */,
 			);
 			name = TablesRelationshipTypeView;
@@ -1207,15 +1200,6 @@
 				28EB2ABA1ECCC3EB00614D80 /* OneLabelTVHeader.swift */,
 			);
 			name = TVHeader;
-			sourceTree = "<group>";
-		};
-		28EB2ABC1ECDACC700614D80 /* EditRelationshipVC */ = {
-			isa = PBXGroup;
-			children = (
-				28EB2ABD1ECDACEC00614D80 /* EditRelationshipVC.swift */,
-				28EB2AC21ECDAE0E00614D80 /* EditRelationshipVM.swift */,
-			);
-			name = EditRelationshipVC;
 			sourceTree = "<group>";
 		};
 		28EB2ABF1ECDAD9700614D80 /* Relationship */ = {
@@ -1310,7 +1294,6 @@
 		4785C3D21E80742500F99628 /* AddRecord */ = {
 			isa = PBXGroup;
 			children = (
-				2805FC2E1EC7118A00211D5A /* RecordVC.swift */,
 				2805FC361EC7330600211D5A /* RecordScreenVM.swift */,
 			);
 			name = AddRecord;
@@ -1670,7 +1653,6 @@
 				28688D531ECA208200C44E34 /* TablesRelationship.swift in Sources */,
 				28EF3A621ED0CDFE00B0E037 /* RequestsStorage.swift in Sources */,
 				2805FC3A1EC74F4300211D5A /* AlertVCProtocols.swift in Sources */,
-				2805FC2F1EC7118A00211D5A /* RecordVC.swift in Sources */,
 				28EF3A491ED0AE7100B0E037 /* RequestSourceTVCell.swift in Sources */,
 				2805FC4E1ECA147100211D5A /* DBFrameworkInteractorConnecter.swift in Sources */,
 				28707B0A1ED2F0840015E02C /* TwoLabelTVCell.swift in Sources */,
@@ -1682,7 +1664,7 @@
 				28A823881ED05D97004B4476 /* RequestsManagerRealm.swift in Sources */,
 				2805FC401EC82D1B00211D5A /* StringValidator.swift in Sources */,
 				28974D7F1EC24CC600B5BDAC /* FileSystemHelper.swift in Sources */,
-				28AC652C1ECE29A70043A281 /* numberOfRelationshipTypes.swift in Sources */,
+				28AC652C1ECE29A70043A281 /* TablesRelationshipTypeView.swift in Sources */,
 				2860F03B1EBDF58300C6B027 /* FrameworkInfo.swift in Sources */,
 				2831CE251EBC514400C82EC0 /* DataTypeSelectionCellVM.swift in Sources */,
 				28381B581E7EFD7B006B0398 /* EditTableVM.swift in Sources */,
@@ -1720,7 +1702,6 @@
 				2878DC1A1EA4AE780070AFD5 /* DataBaseVController.swift in Sources */,
 				2878DC281EA504060070AFD5 /* NBSimulatorWithAddButton.swift in Sources */,
 				28EF3A601ED0CD0100B0E037 /* RequestSource.swift in Sources */,
-				28EB2ABE1ECDACEC00614D80 /* EditRelationshipVC.swift in Sources */,
 				287485CD1EA8DAEA00A5CA31 /* AppDBChecker.swift in Sources */,
 				28707B201ED4B4010015E02C /* RequestEditConditionItemBackgroundView.swift in Sources */,
 				28EF3A451ED0AD3900B0E037 /* RequestVM.swift in Sources */,
@@ -1783,7 +1764,6 @@
 				2805FC351EC7210600211D5A /* RecordEditValueView.swift in Sources */,
 				28381B5E1E7F0060006B0398 /* TableProperty.swift in Sources */,
 				286A63211E901463005BC971 /* DBMSCViewCell.swift in Sources */,
-				28EB2AC31ECDAE0E00614D80 /* EditRelationshipVM.swift in Sources */,
 				28EF3A521ED0C57E00B0E037 /* RequestSourcesSelectionVM.swift in Sources */,
 				684031E51EC2DDB500541BC4 /* FileSystemProperty.swift in Sources */,
 				2805FC371EC7330600211D5A /* RecordScreenVM.swift in Sources */,

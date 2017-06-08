@@ -48,15 +48,6 @@ class StoryboardHelper: NSObject {
         return vc
     }
     
-    class func recordVC(dbFramework: DataBaseFramework, tableName: String, record: Record?, cancelAction: (() -> ())?, saveAction: (() -> ())?) -> RecordVC {
-        let vc = Storyboard.fillTables.instantiateViewController(withIdentifier: "RecordVC") as! RecordVC
-        vc.cancelButtonPressedAction = cancelAction
-        vc.saveButtonPressedAction = saveAction
-        let viewModel = RecordScreenVM(dbFramework: dbFramework, tableName: tableName, record: record)
-        vc.viewModel = viewModel
-        return vc
-    }
-    
     //  MARK: Requests
     
     class func requestsListVC(dbFramework: DataBaseFramework) -> RequestsListVC {
@@ -115,13 +106,6 @@ class StoryboardHelper: NSObject {
     class func columnVC(dbFramework: DataBaseFramework, tableName: String, columnName: String) -> EditColumnVController {
         let vc = Storyboard.editTables.instantiateViewController(withIdentifier: "EditColumnVController") as! EditColumnVController
         let viewModel = EditColumnVM(dbFramework: dbFramework, tableName: tableName, columnName: columnName)
-        vc.viewModel = viewModel
-        return vc
-    }
-    
-    class func editRelationshipVC(dbFramework: DataBaseFramework, relationship: TablesRelationship?) -> EditRelationshipVC {
-        let vc = Storyboard.editTables.instantiateViewController(withIdentifier: "EditRelationshipVC") as! EditRelationshipVC
-        let viewModel = EditRelationshipVM(dbFramework: dbFramework, relationship: relationship)
         vc.viewModel = viewModel
         return vc
     }

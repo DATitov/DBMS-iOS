@@ -31,9 +31,7 @@ class FillTableVC: BaseViewController {
         navigationBarSimulator.title = viewModel.table.name
         navigationBarSimulator.addButtonPressedAction = {
             DispatchQueue.main.async { [unowned self] in
-                DataBaseRouter.shared.showRecordScreen(dbFramework: self.viewModel.dbFramework, tableName: self.viewModel.table.name, record: nil, cancelAction: {
-                    
-                },
+                DataBaseRouter.shared.showRecordScreen(dbFramework: self.viewModel.dbFramework, tableName: self.viewModel.table.name, record: nil,
                                                        saveAction: {
                                                         DispatchQueue.main.async {
                                                             self.viewModel.relaunch()

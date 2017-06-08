@@ -9,20 +9,21 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
-protocol AlertViewDelegate: class {
-    func cancelButtonPressed()
-    func saveButtonPressed(object: AnyObject)
-}
+import DTAlertViewContainer
 
 class RecordView: UIView {
     
     let disposeBag = DisposeBag()
     var propertiesValuesDisposeBag = DisposeBag()
     
+    var viewModel: RecordScreenVM!
+    
     let propertiesViews = Variable<[RecordEditValueView]>([RecordEditValueView]())
 
-    weak var delegate: AlertViewDelegate?
+    weak var delegate: DTAlertViewContainerProtocol?
+    var requiredHeight = 0.0 as CGFloat
+    var frameToFocus = CGRect.zero
+    var needToFocus = false
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -44,16 +45,18 @@ class RecordView: UIView {
     var tableData: TableData!
     var record: Record?
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    init(viewModel: RecordScreenVM) {
+        super.init(frame: CGRect.zero)
+        self.viewModel = viewModel
+        self.tableData = viewModel.tableData
+        self.record = viewModel.record
+        self.setupUI()
         self.initBindings()
     }
     
-    func update(withTableData tableData: TableData, andRecord record: Record?) {
-        self.removeUI()
-        self.tableData = tableData
-        self.record = record
-        self.setupUI()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initBindings()
     }
     
     func initBindings() {
@@ -84,6 +87,7 @@ extension RecordView { // MARK: Setup UI
         self.setupSeparators()
         
         self.configureView()
+        self.requiredHeight = self.calculateRequiredHeight()
     }
     
     func configureView() {
@@ -153,7 +157,22 @@ extension RecordView: RecordEditValueViewDelegate { // MARK: RecordEditValueView
     
     func returnButtonPressed(sender: RecordEditValueView) {
         if sender.tag < propertiesViews.value.count - 1 {
-            propertiesViews.value[sender.tag + 1].textFielsBecomeFirstResponder()
+            let textField = propertiesViews.value[sender.tag + 1].valueTextField
+            delegate?.performTextInputSwitch({
+                textField.becomeFirstResponder()
+            })
+        }else if sender.tag == propertiesViews.value.count - 1 {
+            propertiesViews.value[sender.tag].valueTextField.resignFirstResponder()
+        }
+    }
+    
+}
+
+extension RecordView: DTAlertViewProtocol { // MARK: DTAlertViewProtocol
+    
+    func backgroundPressed() {
+        for propertyView in self.propertiesViews.value {
+            propertyView.valueTextField.resignFirstResponder()
         }
     }
     
@@ -174,9 +193,6 @@ extension RecordView { // MARK: Layout
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.layoutBackgroundView()
-        self.layoutSeparators()
         
         let verticalSpaces = self.verticalSpaces()
         
@@ -208,7 +224,10 @@ extension RecordView { // MARK: Layout
         cancelButton.frame = CGRect(x: buttonsHorisontalOffset, y: buttonsYCoord,
                                     width: buttonsSize.width, height: buttonsSize.height)
         saveButton.frame = CGRect(x: self.frame.size.width - buttonsSize.width - buttonsHorisontalOffset, y: buttonsYCoord,
-                                    width: buttonsSize.width, height: buttonsSize.height)
+                                  width: buttonsSize.width, height: buttonsSize.height)
+        
+        self.layoutBackgroundView()
+        self.layoutSeparators()
     }
     
     func layoutSeparators() {
@@ -241,7 +260,7 @@ extension RecordView { // MARK: Layout
                                                   height: height)
     }
     
-    func requiredHeight() -> CGFloat {
+    func calculateRequiredHeight() -> CGFloat {
         let verticalSpaces = self.verticalSpaces()
         let labelArea = verticalSpaces.topOffset + verticalSpaces.labelHeight + verticalSpaces.betweenTitleAndProperties
         let propertiesHeight = propertiesViews.value.reduce(0.0) {
@@ -257,14 +276,15 @@ extension RecordView { // MARK: Layout
 extension RecordView { // MARK: Actions
     
     @objc func cancelButtonPressed() {
-        delegate?.cancelButtonPressed()
+        delegate?.dismiss()
     }
     
     @objc func saveButtonPressed() {
         let newRecord = self.constructRecord()
         record = newRecord
-        self.update(withTableData: tableData, andRecord: record)
-        delegate?.saveButtonPressed(object: newRecord)
+        //self.update(withTableData: tableData, andRecord: record)
+        viewModel.saveRecord(record: newRecord)
+        delegate?.dismiss()
     }
     
     func constructRecord() -> Record {

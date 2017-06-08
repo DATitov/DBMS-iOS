@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DTAlertViewContainer
 
 class RelationshipView: UIView {
     
@@ -16,11 +17,24 @@ class RelationshipView: UIView {
     let cancelButton = AlertViewButton()
     let saveButton = AlertViewButton()
     
-    weak var delegate: AlertViewDelegate?
+    weak var delegate: DTAlertViewContainerProtocol?
     
+    var requiredHeight = 0.0 as CGFloat
+    var frameToFocus = CGRect.zero
+    var needToFocus = false
+        
     let relationshipTypeView = TablesRelationshipTypeView()
     
     var viewModel: RelationshipViewVM!
+    
+    var cancelButtonPressedAction: (() -> ())?
+    var saveButtonPressedAction: (() -> ())?
+    
+    init(viewModel: RelationshipViewVM) {
+        super.init(frame: .zero)
+        self.setupUI()
+        self.bindViewModel(viewModel: viewModel)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -39,6 +53,8 @@ class RelationshipView: UIView {
         backgroundColor = UIColor.clear
         
         self.setupButtons()
+        
+        self.requiredHeight = self.calculateRequiredHeight()
     }
     
     func setupButtons() {
@@ -102,9 +118,17 @@ extension RelationshipView {
         
     }
     
-    func requiredHeight() -> CGFloat {
+    func calculateRequiredHeight() -> CGFloat {
         let verticalSpaces = self.verticalSpaces()
         return (verticalSpaces.verticalOffset + verticalSpaces.sideViewHeight) * 2 + verticalSpaces.betweenVerticalSpace * 3 + verticalSpaces.relationTypeViewHeight + verticalSpaces.buttonsHeight
+    }
+    
+}
+
+extension RelationshipView: DTAlertViewProtocol {
+    
+    func backgroundPressed() {
+        
     }
     
 }
@@ -112,11 +136,18 @@ extension RelationshipView {
 extension RelationshipView {
     
     @objc func cancelButtonPressed() {
-        delegate?.cancelButtonPressed()
+        if cancelButtonPressedAction != nil {
+            self.cancelButtonPressedAction!()
+        }
+        delegate?.dismiss()
     }
     
     @objc func saveButtonPressed() {
         let relationship = viewModel.constructRelationship()
-        delegate?.saveButtonPressed(object: relationship)
+        viewModel.saveRelationship(relationship: relationship)
+        if saveButtonPressedAction != nil {
+            self.saveButtonPressedAction!()
+        }
+        delegate?.dismiss()
     }
 }

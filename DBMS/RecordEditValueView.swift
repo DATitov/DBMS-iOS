@@ -97,7 +97,6 @@ extension RecordEditValueView { // MARK: Setup UI
     }
     
     func donePressed() {
-        valueTextField.resignFirstResponder()
         delegate?.returnButtonPressed(sender: self)
     }
     

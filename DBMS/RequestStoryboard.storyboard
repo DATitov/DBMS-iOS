@@ -201,46 +201,6 @@
             </objects>
             <point key="canvasLocation" x="3407" y="35"/>
         </scene>
-        <!--Request Edit Condition ItemVC-->
-        <scene sceneID="iVx-z9-iq8">
-            <objects>
-                <viewController storyboardIdentifier="RequestEditConditionItemVC" id="09h-iX-doW" customClass="RequestEditConditionItemVC" customModule="DBMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cTC-xh-7tf"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xx0-wk-Va8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xyk-hQ-7KT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FN-w2-7Ac" customClass="AlertViewBackgroundButton" customModule="DBMS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5W-QN-K5o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYo-gx-RUa" customClass="RequestEditConditionItemView" customModule="DBMS" customModuleProvider="target">
-                                        <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundButton" destination="7FN-w2-7Ac" id="Tgv-9O-TyT"/>
-                        <outlet property="editConditionView" destination="PYo-gx-RUa" id="rPB-Mt-3Tb"/>
-                        <outlet property="scrollView" destination="s5W-QN-K5o" id="hhL-bI-Efs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hx4-tj-GTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4457" y="35"/>
-        </scene>
         <!--Request Execution ResultVC-->
         <scene sceneID="YQt-UV-1Gk">
             <objects>

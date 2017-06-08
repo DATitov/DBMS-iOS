@@ -25,7 +25,7 @@ class RequestEditConditionItemView: UIView {
     
     var viewModel: RequestEditConditionItemVM!
     
-    weak var delegate: DTAlertViewDelegate?
+    weak var delegate: DTAlertViewContainerProtocol?
     var requiredHeight = 0.0 as CGFloat
     var frameToFocus = CGRect.zero
     var needToFocus = false

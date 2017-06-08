@@ -76,6 +76,7 @@ class DropdownView: UIView {
         tableView.separatorColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
+        tableView.isExclusiveTouch = true
     }
     
     func setupButtons() {
@@ -141,6 +142,14 @@ extension DropdownView: UITableViewDelegate { // MARK: UITableViewDelegate
         
         selectedIndex.value = indexPath.row
         state.value = .Unselected
+    }
+    
+}
+
+extension DropdownView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print()
     }
     
 }

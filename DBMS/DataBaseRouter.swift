@@ -78,13 +78,14 @@ class DataBaseRouter: NSObject {
     }
     
     func showRequestEditConditionScreen(dbFramework: DataBaseFramework, conditionItem: RequestConditionItem, availableSelectionItems: [RequestSelectionItem]) {
+        guard let topVC = mainNavigationController.topViewController else { return }
         let vc = DTAlertViewContainerController()
         vc.appearenceDuration = 0.3
         vc.scrollView.isScrollEnabled = false
         vc.alertViewContainsTableView = true
         let viewModel = RequestEditConditionItemVM(dbFramework: dbFramework, conditionItem: conditionItem, availableSelectionItems: availableSelectionItems)
         let alertView = RequestEditConditionItemView(viewModel: viewModel)
-        vc.presentOverVC(mainNavigationController.topViewController, alert: alertView, appearenceAnimation: .fade, completion: nil)
+        vc.presentOverVC(topVC, alert: alertView, appearenceAnimation: .fade, completion: nil)
     }
     
     func showRequestExecutionResultScreen(dbFramework: DataBaseFramework, requestName: String) {
@@ -104,9 +105,14 @@ class DataBaseRouter: NSObject {
         mainNavigationController.pushViewController(vc, animated: true)
     }
     
-    func showRecordScreen(dbFramework: DataBaseFramework, tableName: String, record: Record?, cancelAction: (() -> ())?, saveAction: (() -> ())?) {
-        let vc = StoryboardHelper.recordVC(dbFramework: dbFramework, tableName: tableName, record: record, cancelAction: cancelAction, saveAction: saveAction)
-        mainNavigationController.topViewController?.present(vc, animated: true) { }
+    func showRecordScreen(dbFramework: DataBaseFramework, tableName: String, record: Record?, saveAction: (() -> ())?) {
+        guard let topVC = mainNavigationController.topViewController else { return }
+        let vm = RecordScreenVM(dbFramework: dbFramework, tableName: tableName, record: record)
+        let alertView = RecordView(viewModel: vm)
+        let vc = DTAlertViewContainerController()
+        vc.positionBinding = .centre
+        vc.dismissAction = saveAction
+        vc.presentOverVC(topVC, alert: alertView, appearenceAnimation: .fromBottom, completion: nil)
     }
     
     
@@ -128,8 +134,11 @@ class DataBaseRouter: NSObject {
     }
     
     func showEditRelationshipScreen(dbFramework: DataBaseFramework, relationship: TablesRelationship?) {
-        let vc = StoryboardHelper.editRelationshipVC(dbFramework: dbFramework, relationship: relationship)
-        mainNavigationController.topViewController?.present(vc, animated: true) { }
+        guard let topVC = mainNavigationController.topViewController else { return }
+        let viewModel = RelationshipViewVM(dbFramework: dbFramework, relationship: relationship)
+        let vc = DTAlertViewContainerController()
+        let av = RelationshipView(viewModel: viewModel)
+        vc.presentOverVC(topVC, alert: av, appearenceAnimation: .fromBottom, completion: nil)
     }
 }
 
